@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Career Assessment — CareerForge{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="eyebrow">01 / CAREER ASSESSMENT</div>
+  <h1>Tell us where you are.<br><em>We'll map where to go.</em></h1>
+  <p>Be honest rather than trying to sound impressive. The roadmap is only as useful as the information you give it.</p>
+</section>
+
+<section class="form-shell">
+  <form id="careerForm">
+    <div class="form-section">
+      <div class="form-title"><span>01</span><div><h3>Your current position</h3><p>Give the AI your starting point.</p></div></div>
+      <div class="field-grid">
+        <label>Education <span>*</span><textarea name="education" required placeholder="Example: 3rd year B.Tech CSE, Semester 5"></textarea></label>
+        <label>Experience <span>*</span><textarea name="experience" required placeholder="Example: 1 internship, 2 college projects, beginner-level professional experience"></textarea></label>
+        <label>Current skills <span>*</span><textarea name="skills" required placeholder="Example: Python, HTML/CSS, SQL, basic ML, Git"></textarea></label>
+        <label>Interests <small>optional</small><textarea name="interests" placeholder="Example: AI, product building, finance, cybersecurity"></textarea></label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title"><span>02</span><div><h3>Your destination</h3><p>What are you trying to become?</p></div></div>
+      <div class="field-grid">
+        <label>Career goal / target role <span>*</span><input name="goal" required placeholder="Example: AI/ML Engineer"></label>
+        <label>Weekly hours available <span>*</span><select name="weekly_hours"><option>5</option><option selected>8</option><option>10</option><option>15</option><option>20</option></select></label>
+        <label>Location <input name="location" value="India" placeholder="India"></label>
+        <label>Name <small>optional</small><input name="name" placeholder="Your name"></label>
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <div class="privacy-note">🔒 Your API key stays on the server. Your profile is used only to generate this roadmap.</div>
+      <button class="btn primary" type="submit" id="generateBtn">Generate my roadmap <span>→</span></button>
+    </div>
+    <div id="formError" class="error-box hidden"></div>
+  </form>
+</section>
+
+<section id="loading" class="loading hidden">
+  <div class="loader"></div>
+  <h3>Building your Career DNA…</h3>
+  <p>Mapping skills → finding gaps → designing your roadmap.</p>
+</section>
+{% endblock %}

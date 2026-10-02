@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}CareerForge — AI Career Chooser{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span> AI-POWERED CAREER PLANNING</div>
+    <h1>Your career path,<br><em>built around you.</em></h1>
+    <p>Tell CareerForge where you are and where you want to go. Get a personalized skill-gap analysis, learning roadmap, portfolio projects and free resources.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="/assessment">Create my roadmap <span>→</span></a>
+      <a class="btn secondary" href="/resources">Explore resources</a>
+    </div>
+    <div class="trust-row"><span>✦ Personalized</span><span>✦ Free resources</span><span>✦ Action focused</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="orbit-card main-card">
+      <div class="mini-label">CAREER DNA</div>
+      <div class="score-ring"><strong>78</strong><span>/100</span></div>
+      <div class="score-copy"><b>Building Momentum</b><small>Your roadmap is taking shape.</small></div>
+      <div class="bars"><i style="width:82%"></i><i style="width:67%"></i><i style="width:74%"></i><i style="width:58%"></i></div>
+    </div>
+    <div class="float-card one">🎯 <b>Target Role</b><small>AI Engineer</small></div>
+    <div class="float-card two">⚡ <b>Skill Gap</b><small>3 high-impact skills</small></div>
+    <div class="float-card three">✓ <b>Next 7 Days</b><small>5 actions ready</small></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div><div class="eyebrow">WHY CAREERFORGE</div><h2>Not another AI chatbot.</h2></div>
+    <p>CareerForge turns one conversation into a structured plan you can actually follow.</p>
+  </div>
+  <div class="feature-grid">
+    <article class="feature"><div class="feature-icon">01</div><h3>Career DNA</h3><p>A quick readiness snapshot across technical foundation, practical skills, portfolio proof and career readiness.</p></article>
+    <article class="feature accent"><div class="feature-icon">02</div><h3>Skill Gap Engine</h3><p>Focus on the few missing skills that matter most for your target instead of collecting endless courses.</p></article>
+    <article class="feature"><div class="feature-icon">03</div><h3>Action Roadmap</h3><p>Get phases, projects, a 30/60/90-day plan and a next-7-days checklist in one view.</p></article>
+    <article class="feature"><div class="feature-icon">04</div><h3>Free Resource Path</h3><p>Learning links are selected from a curated library of reputable free resources.</p></article>
+  </div>
+</section>
+
+<section class="split-section">
+  <div><div class="eyebrow">THE FLOW</div><h2>From “I want to…”<br>to “I know what to do.”</h2></div>
+  <div class="steps">
+    <div><b>01</b><span>Profile</span><small>Education, skills, experience</small></div>
+    <div><b>02</b><span>Goal</span><small>Role or career direction</small></div>
+    <div><b>03</b><span>AI Analysis</span><small>Skill gaps + career DNA</small></div>
+    <div><b>04</b><span>Roadmap</span><small>Learn → Build → Prove</small></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div><div class="eyebrow">READY?</div><h2>Build your path in under 2 minutes.</h2></div>
+  <a class="btn light" href="/assessment">Start assessment →</a>
+</section>
+{% endblock %}

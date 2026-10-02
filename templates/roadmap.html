@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Your Roadmap — CareerForge{% endblock %}
+{% block content %}
+<section class="result-head">
+  <div>
+    <div class="eyebrow">YOUR PERSONALIZED ROADMAP</div>
+    <h1>{{ plan.headline }}</h1>
+    <p>{{ plan.career_summary }}</p>
+  </div>
+  <a class="btn secondary" href="/assessment">↻ Rebuild</a>
+</section>
+
+<section class="dashboard-grid">
+  <article class="score-card dark">
+    <div class="mini-label">CAREER DNA SCORE</div>
+    <div class="big-score">{{ plan.fit_score }}<small>/100</small></div>
+    <span class="pill">{{ plan.fit_label }}</span>
+    <p>{{ plan.target_role }}</p>
+  </article>
+  <article class="dna-card">
+    <div class="card-head"><h3>Readiness snapshot</h3><span>5 dimensions</span></div>
+    {% for d in plan.career_dna %}
+    <div class="metric"><div><span>{{ d.dimension }}</span><b>{{ d.score }}</b></div><div class="progress"><i style="width:{{ d.score }}%"></i></div><small>{{ d.note }}</small></div>
+    {% endfor %}
+  </article>
+</section>
+
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">SKILL GAP ENGINE</div><h2>What to work on next</h2></div><p>Prioritized so you don't try to learn everything at once.</p></div>
+  <div class="gap-grid">
+    {% for gap in plan.skill_gaps %}
+    <article class="gap-card"><div class="gap-top"><span class="priority {{ gap.priority|lower }}">{{ gap.priority }}</span><span>Skill gap</span></div><h3>{{ gap.skill }}</h3><p>{{ gap.reason }}</p><strong>→ {{ gap.action }}</strong></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">LEARN → BUILD → PROVE</div><h2>Your roadmap</h2></div></div>
+  <div class="timeline">
+    {% for phase in plan.roadmap %}
+    <article class="timeline-item"><div class="timeline-marker">{{ loop.index }}</div><div class="timeline-content"><div class="timeline-meta"><span>{{ phase.phase }}</span><span>{{ phase.duration }}</span></div><h3>{{ phase.title }}</h3><p>{{ phase.goal }}</p><ul>{% for step in phase.steps %}<li>{{ step }}</li>{% endfor %}</ul><div class="deliverable"><b>Output:</b> {{ phase.deliverable }}</div></div></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">90-DAY MAP</div><h2>Know your next milestone</h2></div></div>
+  <div class="quarter-grid">
+    <article><span>01 — DAYS 1–30</span><h3>Foundation</h3><p>{{ plan.days_30_60_90.first_30 }}</p></article>
+    <article class="featured"><span>02 — DAYS 31–60</span><h3>Build</h3><p>{{ plan.days_30_60_90.days_31_60 }}</p></article>
+    <article><span>03 — DAYS 61–90</span><h3>Prove</h3><p>{{ plan.days_30_60_90.days_61_90 }}</p></article>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">PORTFOLIO</div><h2>Projects that prove the skills</h2></div></div>
+  <div class="project-grid">
+    {% for project in plan.projects %}
+    <article class="project-card"><div class="project-top"><span>{{ project.difficulty }}</span><span>PROJECT {{ loop.index }}</span></div><h3>{{ project.title }}</h3><p>{{ project.why }}</p><div class="project-meta"><b>Stack</b><span>{{ project.stack }}</span></div><div class="project-meta"><b>Outcome</b><span>{{ project.outcome }}</span></div></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section resource-path-section">
+  <div class="section-head compact">
+    <div>
+      <div class="eyebrow">CAREERFORGE RESOURCE ENGINE</div>
+      <h2>Your free learning path</h2>
+    </div>
+    <a href="/resources">View full library →</a>
+  </div>
+  <div class="resource-intro">
+    <span>✦</span>
+    <p><strong>Why these resources?</strong> They were matched to your target role and the skill gaps identified in your Career DNA analysis — not randomly suggested.</p>
+  </div>
+  <div class="resource-grid">
+    {% for r in plan.resources %}
+    <a class="resource-card resource-card-enhanced" href="{{ r.url }}" target="_blank" rel="noopener">
+      <div class="resource-content">
+        <div class="resource-topline"><span>{{ r.type }}</span><b class="resource-priority {{ r.priority|lower|replace(' ', '-') }}">{{ r.priority }}</b></div>
+        <h3>{{ r.name }}</h3>
+        <p>{{ r.why }}</p>
+        <div class="resource-tags">
+          {% for tag in r.tags[:3] %}<span>{{ tag }}</span>{% endfor %}
+        </div>
+      </div>
+      <b class="resource-link">↗</b>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="resource-engine-note">CareerForge Resource Engine • validated free resources • matched to your roadmap</div>
+</section>
+
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">THIS WEEK</div><h2>Your next 7 days</h2></div></div>
+  <div class="week-list">{% for item in plan.next_7_days %}<div><span>{{ "%02d"|format(loop.index) }}</span><p>{{ item }}</p></div>{% endfor %}</div>
+</section>
+{% endblock %}

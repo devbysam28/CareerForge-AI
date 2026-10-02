@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}About — CareerForge{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="eyebrow">ABOUT THE PROJECT</div>
+  <h1>Career decisions need<br><em>structure, not noise.</em></h1>
+  <p>CareerForge is an AI-based career chooser platform designed as an academic AI project with a practical user workflow.</p>
+</section>
+<section class="about-grid">
+  <article class="about-card dark"><span>THE PROBLEM</span><h2>Generic advice is easy to get.</h2><p>Students often know what career they want but not what to learn first, which skills they are missing, or how to turn learning into portfolio evidence.</p></article>
+  <article class="about-card"><span>THE SOLUTION</span><h2>One profile → one action plan.</h2><p>CareerForge uses an AI model to analyze the student's current state against their goal and produce a structured roadmap.</p></article>
+</section>
+<section class="content-section">
+  <div class="section-head compact"><div><div class="eyebrow">SYSTEM PIPELINE</div><h2>How the AI works</h2></div></div>
+  <div class="pipeline">
+    <div><b>01</b><h3>Input</h3><p>Education, experience, skills, interests, goal and time available.</p></div>
+    <div><b>02</b><h3>Analyze</h3><p>Gemini identifies role requirements and high-impact skill gaps.</p></div>
+    <div><b>03</b><h3>Structure</h3><p>The response is forced into a fixed roadmap schema instead of open-ended chat.</p></div>
+    <div><b>04</b><h3>Validate</h3><p>Resource links are checked against the platform's curated library.</p></div>
+  </div>
+</section>
+<section class="note-box"><b>Academic project note:</b> AI-generated guidance should be treated as a planning aid. Course availability, prerequisites and career requirements can change, so users should verify details before acting on them.</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Free Resources — CareerForge{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="eyebrow">RESOURCE LIBRARY</div>
+  <h1>Good learning doesn't<br><em>have to be expensive.</em></h1>
+  <p>A curated starting library. CareerForge selects from these resources based on your target role and skill gaps.</p>
+</section>
+<section class="resource-library">
+  {% for r in resources %}
+  <a class="library-item" href="{{ r.url }}" target="_blank" rel="noopener">
+    <div class="resource-number">{{ "%02d"|format(loop.index) }}</div>
+    <div class="resource-main"><span>{{ r.type }}</span><h3>{{ r.name }}</h3><p>{{ ", ".join(r.tags) }}</p></div>
+    <div class="resource-arrow">↗</div>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}
